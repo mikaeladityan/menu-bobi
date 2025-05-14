@@ -27,7 +27,7 @@ export interface CompanyDTORes {
     owners: Array<OwnerDTORes>;
 }
 
-export const DataCompany: CompanyDTORes = {
+export const company: CompanyDTORes = {
     name: "Bobi Bowl Restaurant",
     description:
         "Discover the best dining experience in town. We serve delicious food made with fresh ingredients and offer a cozy atmosphere for you to enjoy.",

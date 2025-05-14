@@ -3,6 +3,7 @@ import "./globals.css";
 import { RootProvider } from "~/components/Provider";
 import { poppins } from "~/utils/font";
 import { MainNavbar } from "~/components/layouts/navbar/main.navbar";
+import { Alert } from "~/components/ui/alert";
 export const metadata: Metadata = {
     title: "Menu | Bobi Bowl Restaurant",
     description:
@@ -44,7 +45,8 @@ export default function RootLayout({
                 className={`${poppins.className} overflow-x-hidden scroll-smooth antialiased bg-gray-200 max-w-md mx-auto text-gray-950 font-normal tracking-wide`}
             >
                 <RootProvider>
-                    <section className="min-h-screen">
+                    <section className="min-h-screen relative">
+                        <Alert />
                         <MainNavbar />
                         <main className="p-3">{children}</main>
                     </section>

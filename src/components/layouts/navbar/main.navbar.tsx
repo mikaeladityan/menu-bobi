@@ -5,16 +5,18 @@ import { AnimatePresence } from "motion/react";
 import { ChangeEvent, useState } from "react";
 import { Brand } from "~/components/ui/brand";
 import { InputSearch } from "~/components/ui/input.search";
-import { searchingAtom } from "~/store/searching.atom";
+import { searchingAtom } from "~/store/fillter.atom";
+import { CategoriesNavbar } from "./categories.navbar";
 
 export function MainNavbar() {
     const [searchActive, setSearchActive] = useState<boolean>(false);
     const [search, setSearch] = useAtom(searchingAtom);
     return (
         <nav className="sticky z-40 w-full top-0 left-0 right-0 max-w-md mx-auto bg-gray-50 text-gray-900 p-5 py-4 border-b border-gray-300">
-            <section className="flex items-center justify-between gap-5">
+            <section className="flex items-center justify-between gap-5 mb-5">
                 <Brand />
 
+                {/* side button navbar */}
                 <div className="w-full flex items-center justify-end gap-5">
                     <button
                         className="relative cursor-pointer text-red font-medium flex items-center justify-center gap-1"
@@ -40,15 +42,20 @@ export function MainNavbar() {
                     </button>
                 </div>
             </section>
+
+            {/* Searching */}
             <AnimatePresence initial={false}>
                 {searchActive && (
                     <InputSearch
                         value={search}
                         handle={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
-                        className={!searchActive ? "py-0" : "mt-5"}
+                        className={"mb-5"}
                     />
                 )}
             </AnimatePresence>
+
+            {/* Categories */}
+            <CategoriesNavbar />
         </nav>
     );
 }
