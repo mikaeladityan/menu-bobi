@@ -41,11 +41,14 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${poppins.className} overflow-x-hidden scroll-smooth antialiased bg-gray-100 text-gray-950 font-normal tracking-wide`}
+                className={`${poppins.className} overflow-x-hidden scroll-smooth antialiased bg-gray-200 max-w-md mx-auto text-gray-950 font-normal tracking-wide`}
             >
                 <RootProvider>
-                    <MainNavbar />
-                    {children}
+                    <section className="min-h-screen">
+                        <MainNavbar />
+                        <main className="p-3">{children}</main>
+                    </section>
+                    <footer className="bg-gray-200 p-6 text-center min-h-screen">…isi footer…</footer>
                 </RootProvider>
             </body>
         </html>
