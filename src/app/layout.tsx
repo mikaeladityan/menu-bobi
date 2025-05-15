@@ -48,7 +48,7 @@ export default function RootLayout({
                     <section className="min-h-screen relative">
                         <Alert />
                         <MainNavbar />
-                        <main className="p-3">{children}</main>
+                        {children}
                     </section>
                     <footer className="bg-gray-200 p-6 text-center min-h-screen">…isi footer…</footer>
                 </RootProvider>

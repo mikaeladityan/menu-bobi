@@ -1,8 +1,13 @@
+import { MainHeader } from "~/components/layouts/header/main.header";
+import { BestSeller } from "~/components/layouts/home/bestSeller";
+import { MenuLayout } from "~/components/layouts/home/menu";
+
 export default function Home() {
     return (
-        <main>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed distinctio aliquid porro sint debitis culpa?
-            Beatae quia nostrum ipsa deserunt, quos mollitia qui corporis molestiae? Animi inventore aliquid iusto. Sit!
+        <main className="flex flex-col">
+            <MainHeader />
+            <BestSeller />
+            <MenuLayout />
         </main>
     );
 }

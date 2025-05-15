@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+    images: {
+        remotePatterns: [new URL("https://img1.wsimg.com/isteam/ip/**")],
+    },
 };
 
 export default nextConfig;

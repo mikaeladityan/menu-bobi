@@ -10,14 +10,17 @@
   },
   "dependencies": {
     "@tabler/icons-react": "^3.31.0",
+    "@tanstack/query-core": "^5.76.0",
     "@tanstack/react-query": "^5.76.1",
     "@tanstack/react-query-devtools": "^5.76.1",
     "jotai": "^2.12.4",
+    "jotai-tanstack-query": "^0.9.0",
     "motion": "^12.11.1",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwind-merge": "^3.3.0"
+    "tailwind-merge": "^3.3.0",
+    "tailwindcss-animated": "^2.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

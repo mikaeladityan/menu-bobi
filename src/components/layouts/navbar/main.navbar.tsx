@@ -6,14 +6,13 @@ import { ChangeEvent, useState } from "react";
 import { Brand } from "~/components/ui/brand";
 import { InputSearch } from "~/components/ui/input.search";
 import { searchingAtom } from "~/store/fillter.atom";
-import { CategoriesNavbar } from "./categories.navbar";
 
 export function MainNavbar() {
     const [searchActive, setSearchActive] = useState<boolean>(false);
     const [search, setSearch] = useAtom(searchingAtom);
     return (
         <nav className="sticky z-40 w-full top-0 left-0 right-0 max-w-md mx-auto bg-gray-50 text-gray-900 p-5 py-4 border-b border-gray-300">
-            <section className="flex items-center justify-between gap-5 mb-5">
+            <section className="flex items-center justify-between gap-5">
                 <Brand />
 
                 {/* side button navbar */}
@@ -49,13 +48,13 @@ export function MainNavbar() {
                     <InputSearch
                         value={search}
                         handle={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
-                        className={"mb-5"}
+                        className={"mt-5"}
                     />
                 )}
             </AnimatePresence>
 
             {/* Categories */}
-            <CategoriesNavbar />
+            {/* <CategoriesNavbar /> */}
         </nav>
     );
 }
