@@ -1,5 +1,4 @@
 "use client";
-import { CategoriesNavbar } from "../../navbar/categories.navbar";
 import { IconBowlChopsticksFilled, IconGlassFullFilled } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import { companyAtom } from "~/store/company.atom";
@@ -20,18 +19,15 @@ export function MenuLayout() {
         queryFn: () => menuService.fetchBeverageMenuList(),
     });
     return (
-        <section className="flex flex-col">
-            <div className="p-3 border-y border-gray-300">
-                <CategoriesNavbar />
-            </div>
-            <h2 className="uppercase text-gray-500 font-bold bg-gray-100 text-xs pt-3 px-3 flex items-center justify-start gap-2">
+        <section className="flex flex-col bg-gray-200">
+            <h2 className="uppercase text-gray-500 font-bold text-xs pt-3 px-3 flex items-center justify-start gap-2">
                 <IconBowlChopsticksFilled size={18} /> Food Menu
             </h2>
             {food?.map((fm, i) => (
                 <SectionMenu data={fm} key={i} column={column} company={data?.name || "Bobi Bowl"} />
             ))}
 
-            <h2 className="uppercase text-gray-500 font-bold bg-gray-100 text-xs mt-3 pt-3 px-3 flex items-center justify-start gap-2 border-t border-gray-300 w-full">
+            <h2 className="uppercase text-gray-500 font-bold text-xs mt-3 pt-3 px-3 flex items-center justify-start gap-2 border-t border-gray-300 w-full">
                 <IconGlassFullFilled size={18} /> Beverages Menu
             </h2>
 

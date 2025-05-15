@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { RootProvider } from "~/components/Provider";
 import { poppins } from "~/utils/font";
-import { MainNavbar } from "~/components/layouts/navbar/main.navbar";
 import { Alert } from "~/components/ui/alert";
+import { Footer } from "~/components/layouts/footer";
 export const metadata: Metadata = {
     title: "Menu | Bobi Bowl Restaurant",
     description:
@@ -45,12 +45,9 @@ export default function RootLayout({
                 className={`${poppins.className} overflow-x-hidden scroll-smooth antialiased bg-gray-200 max-w-md mx-auto text-gray-950 font-normal tracking-wide`}
             >
                 <RootProvider>
-                    <section className="min-h-screen relative">
-                        <Alert />
-                        <MainNavbar />
-                        {children}
-                    </section>
-                    <footer className="bg-gray-200 p-6 text-center min-h-screen">…isi footer…</footer>
+                    <Alert />
+                    {children}
+                    <Footer />
                 </RootProvider>
             </body>
         </html>

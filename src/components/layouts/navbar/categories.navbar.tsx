@@ -40,7 +40,7 @@ export function CategoriesNavbar() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
-        <section className="flex items-start justify-between gap-2 thin-scroll relative ">
+        <section className="bg-gray-50 py-5 z-40 ps-3 border-y border-gray-300 flex sticky items-start justify-between gap-2 thin-scroll top-0 left-0 right-0">
             <div className="flex items-center justify-start gap-2">
                 <button
                     type="button"

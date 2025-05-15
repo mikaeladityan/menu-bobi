@@ -9,7 +9,7 @@ type propsSectionMenu = {
 };
 export function SectionMenu({ data, column, company }: propsSectionMenu) {
     return (
-        <div className="p-3 pt-0 bg-gray-100">
+        <section className="p-3 pt-0">
             <div className="font-medium mb-3 flex items-center justify-between gap-2">
                 <h2>{data.category}</h2>
                 <span className="text-gray-600 text-sm">({data.items.length})</span>
@@ -19,6 +19,6 @@ export function SectionMenu({ data, column, company }: propsSectionMenu) {
                     <CardMenu menu={menu} company={company} key={menu.slug} />
                 ))}
             </div>
-        </div>
+        </section>
     );
 }
