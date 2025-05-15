@@ -1,5 +1,6 @@
 import { IconStarFilled } from "@tabler/icons-react";
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 import { MenuItem, STATUS } from "~/constant/menu.constant";
 
 export function CardMenu({ menu, company }: { menu: MenuItem; company: string }) {
@@ -7,23 +8,25 @@ export function CardMenu({ menu, company }: { menu: MenuItem; company: string })
         <button
             key={menu.slug}
             type="button"
-            className="relative rounded-lg overflow-hidden border border-gray-200 bg-gray-50 shadow cursor-pointer text-start flex flex-col justify-start min-w-[175px] min-h-48"
+            className="relative rounded-lg overflow-hidden border border-gray-200 bg-gray-50 w-full cursor-pointer text-start flex flex-col justify-start min-w-[175px]"
         >
-            <div className="relative min-h-20 p-3">
-                <Image
-                    src={
-                        menu.image ||
-                        "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Javanese%20Chicken%20Satay%205%20pcs_AhmadTar.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true"
-                    }
-                    alt={`${menu.name} | ${company}`}
-                    width={2000}
-                    height={2000}
-                    className="w-full h-full object-cover rounded"
-                    priority
-                    quality={100}
-                />
-            </div>
-            <div className="pb-2 px-3 flex flex-col justify-between gap-y-2">
+            {menu.image && (
+                <div className="relative p-3">
+                    <Image
+                        src={
+                            menu.image ||
+                            "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Javanese%20Chicken%20Satay%205%20pcs_AhmadTar.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true"
+                        }
+                        alt={`${menu.name} | ${company}`}
+                        width={2000}
+                        height={2000}
+                        className="w-full h-full object-cover rounded"
+                        priority
+                        quality={100}
+                    />
+                </div>
+            )}
+            <div className={twMerge("pb-2 px-3 flex flex-col justify-between gap-y-2 w-full", !menu.image && "pt-2")}>
                 <h3 className="text-sm flex items-center justify-start gap-1">
                     {menu.status === STATUS.favourite && (
                         <div className="bg-red flex items-center justify-center w-9 h-4 pt-[1px] ps-[1px] rounded-xs text-gray-50">
