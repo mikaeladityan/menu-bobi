@@ -10,7 +10,7 @@
         height: 0.1px; /* ketebalan horizontal scrollbar */
     }
     .thin-scroll::-webkit-scrollbar-track {
-        background: var(--color-gray-50); /* bg-gray-300 */
+        background: transparent; /* bg-gray-300 */
     }
     .thin-scroll::-webkit-scrollbar-thumb {
         background-color: var(--color-gray-300); /* bg-gray-500 */
@@ -21,6 +21,6 @@
     /* Untuk Firefox */
     .thin-scroll {
         scrollbar-width: thin;
-        scrollbar-color: var(--color-gray-300) var(--color-gray-50);
+        scrollbar-color: var(--color-gray-300) transparent;
     }
 }
