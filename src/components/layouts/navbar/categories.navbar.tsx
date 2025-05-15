@@ -1,14 +1,17 @@
 "use client";
 import { IconCategory, IconListDetails, IconLoader3 } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
-import { useSetAtom } from "jotai";
+import { useAtom, useSetAtom } from "jotai";
 import { useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import { categoryService } from "~/service/category.service";
 import { alertAtom } from "~/store/alert.atom";
+import { COLUMN_TYPE, columnAtom } from "~/store/fillter.atom";
 
 export function CategoriesNavbar() {
     const setAlert = useSetAtom(alertAtom);
+    const [column, setColumn] = useAtom<COLUMN_TYPE>(columnAtom);
+
     const {
         data: categories,
         isError,
@@ -16,7 +19,7 @@ export function CategoriesNavbar() {
     } = useQuery({
         queryKey: ["categories"],
         queryFn: () => categoryService.list(),
-        staleTime: 2 * 60 * 60,
+        staleTime: 60 * 500,
     });
 
     useEffect(() => {
@@ -24,13 +27,33 @@ export function CategoriesNavbar() {
             setAlert({ type: "error", title: "Error", message: "Failed Fetching Categories" });
         }
     }, [isError, setAlert]);
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+
+        const raw = window.localStorage.getItem("column");
+        if (raw === "boxed" || raw === "list") {
+            setColumn(raw);
+        } else {
+            setColumn("boxed");
+            window.localStorage.setItem("column", "boxed");
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     return (
-        <section className="flex items-start justify-between gap-2">
+        <section className="flex items-start justify-between gap-2 thin-scroll relative ">
             <div className="flex items-center justify-start gap-2">
-                <button type="button" className="cursor-pointer text-red">
+                <button
+                    type="button"
+                    onClick={() => setColumn("boxed")}
+                    className={twMerge("cursor-pointer", column === "boxed" ? "text-red" : "text-gray-500")}
+                >
                     <IconCategory size={25} stroke={2} />
                 </button>
-                <button type="button" className="cursor-pointer text-gray-500">
+                <button
+                    type="button"
+                    onClick={() => setColumn("list")}
+                    className={twMerge("cursor-pointer", column === "list" ? "text-red" : "text-gray-500")}
+                >
                     <IconListDetails size={25} stroke={2} />
                 </button>
             </div>
@@ -49,7 +72,7 @@ export function CategoriesNavbar() {
                         <button
                             type="button"
                             key={i}
-                            className={`cursor-pointer w-full text-xs text-nowrap bg-gray-50 text-gray-800 border border-gray-800 px-3 rounded-full py-1 hover:bg-red hover:text-gray-50 transition-all ease-in-out duration-300 hover:border-red`}
+                            className={`cursor-pointer w-full text-xs text-nowrap bg-inherit text-gray-800 border border-gray-800 px-3 rounded-full py-1 hover:bg-red hover:text-gray-50 transition-all ease-in-out duration-300 hover:border-red`}
                         >
                             {cat.name}
                         </button>
