@@ -32,7 +32,7 @@ export const company: CompanyDTORes = {
     description:
         "Discover the best dining experience in town. We serve delicious food made with fresh ingredients and offer a cozy atmosphere for you to enjoy.",
     owners: [{ firstName: "Sylvana", lastName: "Sari", email: "sylvana@bobibowl.com" }],
-    logo: "/logo.png",
+    logo: "/web-app-manifest-512x512.png",
     addresses: {
         name: "Bobi Bowl Restaurant",
         street: "Wasl Port Views Building 5 - Shop No.12 Al Mina St",

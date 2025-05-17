@@ -1,7 +1,7 @@
 "use client";
-import { IconShoppingBagDiscount } from "@tabler/icons-react";
 import { useState } from "react";
 import { ORDER_METHOD } from "~/store/order.atom";
+import { CardPromotion } from "./promotion/card.promotion";
 
 export function MainHeader() {
     return (
@@ -46,50 +46,5 @@ function OrderMethod() {
                 </button>
             </div>
         </div>
-    );
-}
-
-function CardPromotion() {
-    return (
-        <>
-            <div className="min-w-[300px] inline-block px-5 py-4 bg-gray-50 rounded-lg shadow border border-gray-300">
-                <div className="grid grid-cols-6 gap-x-2 gap-y-4">
-                    <div className="flex items-center justify-center">
-                        <div className="flex items-center justify-center w-10 h-10 bg-sky-200 text-sky-700 rounded-full">
-                            <IconShoppingBagDiscount />
-                        </div>
-                    </div>
-                    <div className="col-span-5 flex flex-col">
-                        <h5 className="font-medium">Discount Title</h5>
-                        <span className="text-xs text-gray-500 text-wrap">Get 50% OFF with minimum 3 orders</span>
-                    </div>
-                    <button
-                        type="button"
-                        className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-semibold bg-yellow/30 border text-gray-500 border-yellow w-full rounded-lg col-span-6 cursor-pointer hover:scale-95 hover:shadow-lg transition-all ease-in-out duration-300"
-                    >
-                        <span>Applied</span>
-                    </button>
-                </div>
-            </div>
-            <div className="min-w-[300px] inline-block px-5 py-4 bg-gray-50 rounded-lg shadow border border-gray-300">
-                <div className="grid grid-cols-6 gap-x-2 gap-y-4">
-                    <div className="flex items-center justify-center">
-                        <div className="flex items-center justify-center w-10 h-10 bg-sky-200 text-sky-700 rounded-full">
-                            <IconShoppingBagDiscount />
-                        </div>
-                    </div>
-                    <div className="col-span-5 flex flex-col">
-                        <h5 className="font-medium">Discount Title</h5>
-                        <span className="text-xs text-gray-500 text-wrap">Get 50% OFF with minimum 3 orders</span>
-                    </div>
-                    <button
-                        type="button"
-                        className="flex items-center justify-center gap-2 px-3 py-2 text-sm font-semibold bg-yellow border border-yellow w-full rounded-lg col-span-6 cursor-pointer hover:scale-95 hover:shadow-lg transition-all ease-in-out duration-300"
-                    >
-                        <span>Apply</span>
-                    </button>
-                </div>
-            </div>
-        </>
     );
 }

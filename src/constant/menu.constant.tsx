@@ -396,6 +396,7 @@ export const foodMenu: Array<CategoriesMenuDTORes> = [
         ],
     },
 ];
+
 export const beveragesMenu: Array<CategoriesMenuDTORes> = [
     {
         category: "Cold Beverages",
