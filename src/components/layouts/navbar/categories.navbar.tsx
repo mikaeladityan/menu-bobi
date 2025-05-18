@@ -2,7 +2,6 @@
 import { IconCategory, IconListDetails, IconLoader3 } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
 import { useAtom, useSetAtom } from "jotai";
-import { useRouter } from "next/navigation";
 
 import { ChangeEvent, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
@@ -14,6 +13,8 @@ import { COLUMN_TYPE, columnAtom, searchingAtom } from "~/store/fillter.atom";
 export function CategoriesNavbar() {
     const setAlert = useSetAtom(alertAtom);
     const [column, setColumn] = useAtom<COLUMN_TYPE>(columnAtom);
+    const [search, setSearch] = useAtom(searchingAtom);
+    const NAVBAR_HEIGHT = 120; // adjust to your actual header height
 
     const {
         data: categories,
@@ -42,8 +43,14 @@ export function CategoriesNavbar() {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    const router = useRouter();
-    const [search, setSearch] = useAtom(searchingAtom);
+
+    function handleScrollTo(slug: string) {
+        const el = document.getElementById(slug);
+        if (!el) return;
+        // get element’s distance from viewport top, add current scroll, subtract header
+        const topPos = el.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
+        window.scrollTo({ top: topPos, behavior: "smooth" });
+    }
     return (
         <section className="bg-gray-50 sticky z-40 border-y border-gray-300 thin-scroll top-0 left-0 right-0 py-5 flex flex-col gap-y-2 px-3">
             <div className="ps-1 flex items-start justify-between gap-2">
@@ -78,7 +85,7 @@ export function CategoriesNavbar() {
                             <button
                                 type="button"
                                 key={i}
-                                onClick={() => router.push(`#${cat.slug}`)}
+                                onClick={() => handleScrollTo(cat.slug)}
                                 className={`cursor-pointer w-full text-xs text-nowrap bg-inherit text-gray-800 border border-gray-800 px-3 rounded-full py-1 hover:bg-red hover:text-gray-50 transition-all ease-in-out duration-300 hover:border-red`}
                             >
                                 {cat.name}
