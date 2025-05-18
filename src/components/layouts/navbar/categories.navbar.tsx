@@ -2,6 +2,8 @@
 import { IconCategory, IconListDetails, IconLoader3 } from "@tabler/icons-react";
 import { useQuery } from "@tanstack/react-query";
 import { useAtom, useSetAtom } from "jotai";
+import { useRouter } from "next/navigation";
+
 import { ChangeEvent, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import { InputSearch } from "~/components/ui/input.search";
@@ -40,6 +42,7 @@ export function CategoriesNavbar() {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    const router = useRouter();
     const [search, setSearch] = useAtom(searchingAtom);
     return (
         <section className="bg-gray-50 sticky z-40 border-y border-gray-300 thin-scroll top-0 left-0 right-0 py-5 flex flex-col gap-y-2 px-3">
@@ -75,6 +78,7 @@ export function CategoriesNavbar() {
                             <button
                                 type="button"
                                 key={i}
+                                onClick={() => router.push(`#${cat.slug}`)}
                                 className={`cursor-pointer w-full text-xs text-nowrap bg-inherit text-gray-800 border border-gray-800 px-3 rounded-full py-1 hover:bg-red hover:text-gray-50 transition-all ease-in-out duration-300 hover:border-red`}
                             >
                                 {cat.name}

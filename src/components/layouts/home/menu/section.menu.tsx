@@ -9,7 +9,7 @@ type propsSectionMenu = {
 };
 export function SectionMenu({ data, column, company }: propsSectionMenu) {
     return (
-        <section className="p-3 w-full">
+        <section className="p-3 w-full" id={data.slug}>
             <div className="font-medium flex items-center justify-between gap-2">
                 <h2>{data.category}</h2>
                 <span className="text-gray-600 text-sm">({data.items.length})</span>
@@ -18,11 +18,8 @@ export function SectionMenu({ data, column, company }: propsSectionMenu) {
             <div
                 className={twMerge(
                     "grid gap-2",
-                    // selalu 2 kolom saat boxed, 1 kolom saat list
                     column === "boxed" ? "grid-cols-2" : "grid-cols-1",
-                    // ini yang membuat Grid pack item per baris & kolom, fill lubang:
                     "grid-flow-row-dense",
-                    // baris otomatis tinggi sesuai konten
                     "auto-rows-auto"
                 )}
             >

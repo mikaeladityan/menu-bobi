@@ -21,18 +21,6 @@ export const categories: CategoryDTORes[] = [
         include: true,
     },
     {
-        name: "Signature Bowl - Beef",
-        slug: "beef",
-        status: STATUS.active,
-        include: true,
-    },
-    {
-        name: "Signature Bowl - Seafood",
-        slug: "seafood",
-        status: STATUS.active,
-        include: true,
-    },
-    {
         name: "Special Menu",
         slug: "special-menu",
         status: STATUS.active,

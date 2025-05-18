@@ -18,6 +18,7 @@ export interface MenuItem {
 
 export interface CategoriesMenuDTORes {
     category: string;
+    slug: string;
     items: MenuItem[];
     desc?: string;
 }
@@ -25,6 +26,7 @@ export interface CategoriesMenuDTORes {
 export const menu: Array<CategoriesMenuDTORes> = [
     {
         category: "Light Bites",
+        slug: "light-bites",
         items: [
             {
                 name: "Chicken Satay (5 Pcs)",
@@ -101,7 +103,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
             {
                 name: "Edamame Spicy",
                 slug: "edamame-spict",
-                price: 75,
+                price: 17,
                 description: "Crispy, golden, savory shrimp and vegetable fritters.",
                 image: "",
                 status: STATUS.active,
@@ -110,6 +112,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
     },
     {
         category: "Rice Bowls",
+        slug: "rice-bowls",
         desc: "All rice bowl includes one carbs of your choice + egg + side salad. Carbs Options: White Rice / Yellow Rice / Cauliflower Rice",
         items: [
             {
@@ -210,6 +213,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
     },
     {
         category: "Special Menu",
+        slug: "special-menu",
         items: [
             {
                 name: "Nasi Goreng Katsu",
@@ -240,6 +244,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
     },
     {
         category: "Noodle Bowls",
+        slug: "noodle-bowls",
         items: [
             {
                 name: "I Fu Mie",
@@ -279,6 +284,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
     },
     {
         category: "Kids Meal",
+        slug: "kids-meal",
         desc: "All kids meal includes one carbs of your choice. Carbs Options: White Rice / French Fries",
         items: [
             {
@@ -307,6 +313,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
     },
     {
         category: "Cold Beverages",
+        slug: "cold-beverages",
         items: [
             {
                 name: "Jasmine Iced Tea",
@@ -340,6 +347,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
     },
     {
         category: "Fresh Juices",
+        slug: "fresh-juices",
         items: [
             {
                 name: "Orange Juice",
@@ -389,9 +397,9 @@ export const menu: Array<CategoriesMenuDTORes> = [
             },
         ],
     },
-
     {
         category: "Hot Beverages",
+        slug: "hot-beverages",
         items: [
             {
                 name: "Jasmine Tea",
