@@ -13,7 +13,7 @@ export function MainNavbar() {
                     <button className="relative cursor-pointer">
                         <IconShoppingBag className="text-red" stroke={2} />
                         <div className="flex items-center justify-center w-auto h-5 bg-yellow absolute -top-2 -right-3 rounded-full text-red text-[11px] px-1 border border-gray-50">
-                            <span>99</span>
+                            <span>0</span>
                         </div>
                     </button>
                 </div>
