@@ -9,11 +9,12 @@ type propsSectionMenu = {
 };
 export function SectionMenu({ data, column, company }: propsSectionMenu) {
     return (
-        <section className="p-3 pt-0 w-full">
-            <div className="font-medium mb-3 flex items-center justify-between gap-2">
+        <section className="p-3 w-full">
+            <div className="font-medium flex items-center justify-between gap-2">
                 <h2>{data.category}</h2>
                 <span className="text-gray-600 text-sm">({data.items.length})</span>
             </div>
+            <p className="text-start text-xs text-gray-500 mb-3">{data.desc}</p>
             <div
                 className={twMerge(
                     "grid gap-2",

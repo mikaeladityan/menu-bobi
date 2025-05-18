@@ -1,105 +1,4 @@
-export enum STATUS {
-    "active",
-    "favourite",
-    "draft",
-    "delete",
-}
-
-export interface CategoryDTORes {
-    name: string;
-    slug: string;
-    status: STATUS;
-    include: boolean;
-}
-
-export const categories: CategoryDTORes[] = [
-    {
-        name: "Appetizer / Sides",
-        slug: "appetizer",
-        status: STATUS.active,
-        include: false,
-    },
-    {
-        name: "Signature Bowl - Chicken",
-        slug: "chicken",
-        status: STATUS.active,
-        include: true,
-    },
-    {
-        name: "Signature Bowl - Beef",
-        slug: "beef",
-        status: STATUS.active,
-        include: true,
-    },
-    {
-        name: "Signature Bowl - Seafood",
-        slug: "seafood",
-        status: STATUS.active,
-        include: true,
-    },
-    {
-        name: "Signature Bowl - Vegetarian",
-        slug: "vegetarian",
-        status: STATUS.active,
-        include: true,
-    },
-    {
-        name: "Special Menu",
-        slug: "special-menu",
-        status: STATUS.active,
-        include: false,
-    },
-    {
-        name: "Kids Meal",
-        slug: "kids-meal",
-        status: STATUS.active,
-        include: false,
-    },
-    {
-        name: "Beverages",
-        slug: "beverages",
-        status: STATUS.active,
-        include: false,
-    },
-];
-
-export interface BestSellerMenuDTORes {
-    slug: string;
-    name: string;
-    image: string;
-    status: STATUS;
-    price: string | number;
-    description: string | null;
-}
-
-export const bestSellerMenu: BestSellerMenuDTORes[] = [
-    {
-        name: "Chicken Satay",
-        slug: "chicken-satay",
-        image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Javanese%20Chicken%20Satay%205%20pcs_AhmadTar.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
-        price: "27",
-        status: STATUS.favourite,
-        description: "Indonesian char-grilled chicken skewers with soy sauce marination.",
-    },
-    {
-        name: "Beef Rendang",
-        slug: "beef-rendang",
-        image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Beef%20Rendang%20Bowl_AhmadTarakji00057.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
-        price: "42",
-        status: STATUS.favourite,
-        description: "Indonesian traditional slow-cooked beef curry.",
-    },
-    {
-        name: "Mr. Red",
-        slug: "mr-red",
-        image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Mr.%20Red_AhmadTarakji00009.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
-        price: "17",
-        status: STATUS.favourite,
-        description: "Beetroot, Apple, Carrot, Lemon",
-    },
-];
-
-// options untuk menu dengan pilihan carb & salad
+import { STATUS } from "~/types";
 export interface MenuOptions {
     carbs?: string[];
     salad?: string[];
@@ -120,14 +19,15 @@ export interface MenuItem {
 export interface CategoriesMenuDTORes {
     category: string;
     items: MenuItem[];
+    desc?: string;
 }
 
-export const foodMenu: Array<CategoriesMenuDTORes> = [
+export const menu: Array<CategoriesMenuDTORes> = [
     {
-        category: "Appetizer / Sides",
+        category: "Light Bites",
         items: [
             {
-                name: "Chicken Satay",
+                name: "Chicken Satay (5 Pcs)",
                 slug: "chicken-satay",
                 price: 27,
                 description: "Indonesian char-grilled chicken skewers with soy sauce marination.",
@@ -135,8 +35,8 @@ export const foodMenu: Array<CategoriesMenuDTORes> = [
                 status: STATUS.favourite,
             },
             {
-                name: "Chicken Karaage",
-                slug: "chicken-karaage",
+                name: "Chicken Karaage Nori",
+                slug: "chicken-karaage-nori",
                 price: 27,
                 description: "Chicken karaage with nori topping with sweet chili mayo sauce.",
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Chicken%20Karaage%20Nori_AhmadTarakji0001.jpg/:/rs=w:720,h:541,cg:true,m/cr=w:720,h:541",
@@ -161,148 +61,135 @@ export const foodMenu: Array<CategoriesMenuDTORes> = [
             {
                 name: "Bakwan Udang",
                 slug: "bakwan-udang",
-                price: 22,
+                price: 27,
                 description: "Crispy, golden, savory shrimp and vegetable fritters.",
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/IMG_8237.jpg/:/cr=t:11.37%25,l:0%25,w:100%25,h:56.39%25/rs=w:720,h:541,cg:true",
+                status: STATUS.favourite,
+            },
+            {
+                name: "Satay Lilit (5 Pcs) ",
+                slug: "satay-lilit",
+                price: 27,
+                description: "Minced chicken and coconut grated with Balinese sauce in a skewer.",
+                image: "",
+                status: STATUS.active,
+            },
+            {
+                name: "Dan Dan Dumpling",
+                slug: "dan-dan-dumpling",
+                price: 27,
+                description: "Stuffed dumplings with spicy Bobi Bowl Dan Dan peanut sauce.",
+                image: "",
+                status: STATUS.active,
+            },
+            {
+                name: "Okonomi-Puffs",
+                slug: "okonomi-puffs",
+                price: 27,
+                description: "Crispy hash brown puffs with okonomiyaki sauce, mayo, bonito nori toppings.",
+                image: "",
+                status: STATUS.active,
+            },
+            {
+                name: "Edamame Salt",
+                slug: "edamame-salt",
+                price: 15,
+                description: "Crispy, golden, savory shrimp and vegetable fritters.",
+                image: "",
+                status: STATUS.active,
+            },
+            {
+                name: "Edamame Spicy",
+                slug: "edamame-spict",
+                price: 75,
+                description: "Crispy, golden, savory shrimp and vegetable fritters.",
+                image: "",
                 status: STATUS.active,
             },
         ],
     },
     {
-        category: "Signature Bowl - Chicken",
+        category: "Rice Bowls",
+        desc: "All rice bowl includes one carbs of your choice + egg + side salad. Carbs Options: White Rice / Yellow Rice / Cauliflower Rice",
         items: [
             {
-                name: "Chicken Satay",
-                slug: "chicken-satay",
+                name: "Salted Egg Chicken Bowl",
+                slug: "salted-egg-chicken-bowl",
                 price: 37,
-                description: "Indonesian char-grilled chicken skewers with soy sauce marination.",
-                image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Javanese%20Chicken%20Satay%20Bowl_AhmadTara.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
-                status: STATUS.active,
-                options: {
-                    carbs: ["White Rice", "Yellow Rice", "Couscous", "Cauliflower Rice"],
-                    salad: ["With Salad", "No Salad"],
-                },
-            },
-            {
-                name: "Salted Egg Chicken",
-                slug: "salted-egg-chicken",
-                price: 37,
-                description: "Chicken karaage (Japanese style) with salted egg sauce.",
+                description: "Battered chicken glazed in creamy salted egg yolk sauce.",
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Prawn%20Woku%20Bowl_AhmadTarakji00061.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
                 status: STATUS.active,
                 options: {
-                    carbs: ["White Rice", "Yellow Rice", "Couscous", "Cauliflower Rice"],
+                    carbs: ["White Rice", "Yellow Rice", "Cauliflower Rice"],
                     salad: ["With Salad", "No Salad"],
                 },
             },
             {
-                name: "Soy Butter Chicken",
+                name: "Soy Butter Chicken Bowl",
                 slug: "soy-butter-chicken",
                 price: 37,
                 description: "Rich and savoury chicken with soy butter marination.",
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Soy%20Butter%20Chicken%20Bowl_AhmadTarakji0.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
                 status: STATUS.active,
                 options: {
-                    carbs: ["White Rice", "Yellow Rice", "Couscous", "Cauliflower Rice"],
+                    carbs: ["White Rice", "Yellow Rice", "Cauliflower Rice"],
                     salad: ["With Salad", "No Salad"],
                 },
             },
-        ],
-    },
-    {
-        category: "Signature Bowl - Beef",
-        items: [
             {
-                name: "Beef Rendang",
+                name: "Beef Rendang Bowl",
                 slug: "beef-rendang",
                 price: 42,
                 description: "Indonesian traditional slow-cooked beef curry.",
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Beef%20Rendang%20Bowl_AhmadTarakji00057.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
                 status: STATUS.favourite,
                 options: {
-                    carbs: ["White Rice", "Yellow Rice", "Couscous", "Cauliflower Rice"],
+                    carbs: ["White Rice", "Yellow Rice", "Cauliflower Rice"],
                     salad: ["With Salad", "No Salad"],
                 },
             },
             {
-                name: "Beef Tongue Blackpepper",
-                slug: "beef-tongue-blackpepper",
+                name: "Empal Gepuk Bowl",
+                slug: "empal-gepuk",
                 price: 42,
-                description: "Ox-tongue cube with black pepper sauce.",
-                image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Black%20pepper%20Ox-Tongue%20Bowl_AhmadTara.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
-                status: STATUS.active,
-                options: {
-                    carbs: ["White Rice", "Yellow Rice", "Couscous", "Cauliflower Rice"],
-                    salad: ["With Salad", "No Salad"],
-                },
+                description:
+                    "Indonesian traditional slow cooked tenderized beef with sweet and savoury crispy toppings.",
+                image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Nasi%20Kuning%20Empal%20Gepuk_AhmadTarakji0.jpg/:/cr=t:0%25,l:0%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
+                status: STATUS.favourite,
             },
-        ],
-    },
-    {
-        category: "Signature Bowl - Seafood",
-        items: [
             {
-                name: "Egg Tofu Fish XO",
+                name: "Egg Tofu Fish XO Bowl",
                 slug: "egg-tofu-fish-xo",
                 price: 37,
                 description: "Egg tofu and Dory fish with Bobi Bowl XO Sauce.",
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Egg%20Tofu%20Fish%20with%20XO%20Sauce%20Bowl_Ahma.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
                 status: STATUS.active,
                 options: {
-                    carbs: ["White Rice", "Yellow Rice", "Couscous", "Cauliflower Rice"],
+                    carbs: ["White Rice", "Yellow Rice", "Cauliflower Rice"],
                     salad: ["With Salad", "No Salad"],
                 },
             },
             {
-                name: "Prawn Woku",
+                name: "Prawn Woku Bowl",
                 slug: "prawn-woku",
                 price: 42,
                 description: "Spicy and aromatic prawn with Indonesian woku sauce.",
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Salted%20Egg%20Karaage%20Nori%20Bowl_AhmadTar.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
                 status: STATUS.active,
                 options: {
-                    carbs: ["White Rice", "Yellow Rice", "Couscous", "Cauliflower Rice"],
+                    carbs: ["White Rice", "Yellow Rice", "Cauliflower Rice"],
                     salad: ["With Salad", "No Salad"],
                 },
             },
-            {
-                name: "Soft Shell Chili Crab",
-                slug: "soft-shell-chili-crab",
-                price: 53,
-                description: "Crispy fried soft shell crab coated with rich, tangy sweet chili sauce.",
-                image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/IMG_8269.jpg/:/cr=t:29.63%25,l:0%25,w:100%25,h:56.39%25/rs=w:720,h:541,cg:true",
-                status: STATUS.active,
-                options: {
-                    carbs: ["White Rice", "Yellow Rice", "Couscous", "Cauliflower Rice"],
-                    salad: ["With Salad", "No Salad"],
-                },
-            },
-        ],
-    },
-    {
-        category: "Signature Bowl - Vegetarian",
-        items: [
             {
                 name: "Tempe Orek & Tahu Wow",
                 slug: "tempe-orek-tahu-wow",
                 price: 34,
                 description: "Stir-fry sweet soy sauce tempe and crispy salt and pepper tofu.",
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Tempe%20Orek%20And%20Tahu%20Wow%20Bowl_AhmadTar.jpg/:/rs=w:720,h:541,cg:true,m/cr=w:720,h:541",
-                status: STATUS.active,
+                status: STATUS.favourite,
                 options: {
-                    carbs: ["White Rice", "Yellow Rice", "Couscous", "Cauliflower Rice"],
-                    salad: ["With Salad", "No Salad"],
-                },
-            },
-            {
-                name: "Eggplant Mushroom Yuzu",
-                slug: "eggplant-mushroom-yuzu",
-                price: 34,
-                description: "Stir-fry eggplant and shiitake mushroom with yuzu juice.",
-                image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/blob-8d646de.png/:/cr=t:0%25,l:0%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
-                status: STATUS.active,
-                options: {
-                    carbs: ["White Rice", "Yellow Rice", "Couscous", "Cauliflower Rice"],
+                    carbs: ["White Rice", "Yellow Rice", "Cauliflower Rice"],
                     salad: ["With Salad", "No Salad"],
                 },
             },
@@ -315,7 +202,7 @@ export const foodMenu: Array<CategoriesMenuDTORes> = [
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/IMG_8143.JPG/:/cr=t:27.02%25,l:0%25,w:100%25,h:56.39%25/rs=w:720,h:541,cg:true",
                 status: STATUS.active,
                 options: {
-                    carbs: ["White Rice", "Yellow Rice", "Couscous", "Cauliflower Rice"],
+                    carbs: ["White Rice", "Yellow Rice", "Cauliflower Rice"],
                     salad: ["With Salad", "No Salad"],
                 },
             },
@@ -325,37 +212,42 @@ export const foodMenu: Array<CategoriesMenuDTORes> = [
         category: "Special Menu",
         items: [
             {
-                name: "Nasi Kuning Empal Gepuk",
-                slug: "nasi-kuning-empal-gepuk",
-                price: 42,
-                description: "Indonesian yellow rice with tenderized beef and crispy toppings.",
-                image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Nasi%20Kuning%20Empal%20Gepuk_AhmadTarakji0.jpg/:/cr=t:0%25,l:0%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
-                status: STATUS.active,
-            },
-            {
                 name: "Nasi Goreng Katsu",
                 slug: "nasi-goreng-katsu",
                 price: 37,
                 description: "Indonesian fried rice with chicken katsu.",
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Nasi%20Goreng%20Katsu_AhmadTarakji00051.jpg/:/cr=t:0%25,l:0%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
-                status: STATUS.active,
+                status: STATUS.favourite,
             },
             {
-                name: "Mie Goreng",
-                slug: "mie-goreng",
-                price: 37,
-                description:
-                    "A classic Indonesian favorite, stir-fried noodle dish topped with tender chicken, juicy shrimp, fresh vegetables, egg and crispy shallots.",
+                name: "Nasi Ayam Bali",
+                slug: "nasi-ayam-bali",
+                price: 40,
+                description: "State lilit, ayam betutu, urap, telur, kacang",
                 image: "",
                 status: STATUS.active,
             },
+            {
+                name: "Soto Ayam BB",
+                slug: "soto-ayam-bb",
+                price: 37,
+                description:
+                    "Indonesian yellow chicken soup with tender chicken, beansprouts, tofu, egg and potato fritters.",
+                image: "",
+                status: STATUS.active,
+            },
+        ],
+    },
+    {
+        category: "Noodle Bowls",
+        items: [
             {
                 name: "I Fu Mie",
                 slug: "i-fu-mie",
                 price: 37,
                 description: "Chinese-style crispy fried noodle with vegetables and soy oyster sauce.",
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_I%20Fu%20Mie_AhmadTarakji00063.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
-                status: STATUS.active,
+                status: STATUS.favourite,
             },
             {
                 name: "Bobi Bowl Laksa",
@@ -366,16 +258,34 @@ export const foodMenu: Array<CategoriesMenuDTORes> = [
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/IMG_8122.JPG/:/cr=t:24.74%25,l:0%25,w:100%25,h:56.39%25/rs=w:720,h:541,cg:true",
                 status: STATUS.active,
             },
+            {
+                name: "Mie Ayam Jamur",
+                slug: "mie-ayam-jamur",
+                price: 37,
+                description: "Ramen noodle with chicken mushroom, steamed chicken and wonton soup.",
+                image: "",
+                status: STATUS.favourite,
+            },
+            {
+                name: "Mie Goreng",
+                slug: "mie-goreng",
+                price: 37,
+                description:
+                    "A classic Indonesian favorite, stir-fried noodle dish topped with tender chicken, juicy shrimp, fresh vegetables, egg and crispy shallots.",
+                image: "",
+                status: STATUS.active,
+            },
         ],
     },
     {
         category: "Kids Meal",
+        desc: "All kids meal includes one carbs of your choice. Carbs Options: White Rice / French Fries",
         items: [
             {
-                name: "Katsu Bonito",
+                name: "Kids-Katsu Bonito",
                 slug: "katsu-bonito",
                 price: 22,
-                description: "Crispy chicken katsu with bonito flakes.",
+                description: "Crispy chicken katsu with mayo and bonito flakes topping.",
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Chicken%20katsu%20bonito_AhmadTarakji0003.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
                 status: STATUS.active,
                 options: {
@@ -383,7 +293,7 @@ export const foodMenu: Array<CategoriesMenuDTORes> = [
                 },
             },
             {
-                name: "Karaage Nori",
+                name: "Kids-Karaage Nori",
                 slug: "karaage-nori",
                 price: 22,
                 description: "Chicken karaage with nori topping.",
@@ -395,31 +305,35 @@ export const foodMenu: Array<CategoriesMenuDTORes> = [
             },
         ],
     },
-];
-
-export const beveragesMenu: Array<CategoriesMenuDTORes> = [
     {
         category: "Cold Beverages",
         items: [
             {
-                name: "Jasmine Iced Tea (Sweetened)",
-                slug: "jasmine-iced-tea-sweetened",
+                name: "Jasmine Iced Tea",
+                slug: "jasmine-iced-tea",
                 price: 6,
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Sweetened%20iced%20tea_AhmadTarakji00010.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
-                status: STATUS.active,
-            },
-            {
-                name: "Jasmine Iced Tea (Unsweetened)",
-                slug: "jasmine-iced-tea-unsweetened",
-                price: 6,
-                image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Sweetened%20iced%20tea_AhmadTarakji00010.jpg/:/rs=w:720,h:541,cg:true,m/cr=w:720,h:541",
-                status: STATUS.active,
+                status: STATUS.favourite,
             },
             {
                 name: "Lemongrass Iced Tea",
                 slug: "lemongrass-iced-tea",
                 price: 6,
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_lemon%20ice%20tea_AhmadTarakji00012.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
+                status: STATUS.favourite,
+            },
+            {
+                name: "Mineral Water",
+                slug: "mineral-water",
+                price: 5,
+                image: "",
+                status: STATUS.active,
+            },
+            {
+                name: "Soft Drinks",
+                slug: "soft-drinks",
+                price: 6,
+                image: "",
                 status: STATUS.active,
             },
         ],
@@ -441,11 +355,6 @@ export const beveragesMenu: Array<CategoriesMenuDTORes> = [
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_water%20melon%20_AhmadTarakji00004.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
                 status: STATUS.active,
             },
-        ],
-    },
-    {
-        category: "Freshly Mixed Juices",
-        items: [
             {
                 name: "Green House",
                 slug: "green-house",
@@ -476,10 +385,11 @@ export const beveragesMenu: Array<CategoriesMenuDTORes> = [
                 price: 17,
                 description: "Beetroot, Apple, Carrot, Lemon",
                 image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Mr.%20Red_AhmadTarakji00009.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
-                status: STATUS.favourite,
+                status: STATUS.active,
             },
         ],
     },
+
     {
         category: "Hot Beverages",
         items: [
@@ -498,8 +408,15 @@ export const beveragesMenu: Array<CategoriesMenuDTORes> = [
                 status: STATUS.active,
             },
             {
-                name: "Coffee Latte",
-                slug: "coffee-latte",
+                name: "Espresso (Double Shoot)",
+                slug: "espresso-double",
+                price: 16,
+                image: "",
+                status: STATUS.active,
+            },
+            {
+                name: "Latte",
+                slug: "latte",
                 price: 18,
                 image: "",
                 status: STATUS.active,
@@ -525,6 +442,65 @@ export const beveragesMenu: Array<CategoriesMenuDTORes> = [
                 image: "",
                 status: STATUS.active,
             },
+            {
+                name: "Matcha Latte",
+                slug: "matcha-latte",
+                price: 20,
+                image: "",
+                status: STATUS.active,
+            },
         ],
     },
 ];
+
+// {
+//     category: "Signature Bowl - Beef",
+//     items: [
+//         {
+//             name: "Beef Tongue Blackpepper",
+//             slug: "beef-tongue-blackpepper",
+//             price: 42,
+//             description: "Ox-tongue cube with black pepper sauce.",
+//             image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/BobiBowl_Black%20pepper%20Ox-Tongue%20Bowl_AhmadTara.jpg/:/cr=t:0%25,l:0.12%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
+//             status: STATUS.active,
+//             options: {
+//                 carbs: ["White Rice", "Yellow Rice", "Cauliflower Rice"],
+//                 salad: ["With Salad", "No Salad"],
+//             },
+//         },
+//     ],
+// },
+// {
+//     category: "Signature Bowl - Seafood",
+//     items: [
+//         {
+//             name: "Soft Shell Chili Crab",
+//             slug: "soft-shell-chili-crab",
+//             price: 53,
+//             description: "Crispy fried soft shell crab coated with rich, tangy sweet chili sauce.",
+//             image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/IMG_8269.jpg/:/cr=t:29.63%25,l:0%25,w:100%25,h:56.39%25/rs=w:720,h:541,cg:true",
+//             status: STATUS.active,
+//             options: {
+//                 carbs: ["White Rice", "Yellow Rice", "Cauliflower Rice"],
+//                 salad: ["With Salad", "No Salad"],
+//             },
+//         },
+//     ],
+// },
+// {
+//     category: "Signature Bowl - Vegetarian",
+//     items: [
+//         {
+//             name: "Eggplant Mushroom Yuzu",
+//             slug: "eggplant-mushroom-yuzu",
+//             price: 34,
+//             description: "Stir-fry eggplant and shiitake mushroom with yuzu juice.",
+//             image: "https://img1.wsimg.com/isteam/ip/3f357009-a31a-42b3-bdbd-72542afb4044/blob-8d646de.png/:/cr=t:0%25,l:0%25,w:99.75%25,h:100%25/rs=w:720,h:541,cg:true",
+//             status: STATUS.active,
+//             options: {
+//                 carbs: ["White Rice", "Yellow Rice", "Cauliflower Rice"],
+//                 salad: ["With Salad", "No Salad"],
+//             },
+//         },
+//     ],
+// },

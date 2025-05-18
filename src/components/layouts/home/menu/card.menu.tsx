@@ -1,7 +1,8 @@
 import { IconStarFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
-import { MenuItem, STATUS } from "~/constant/menu.constant";
+import { MenuItem } from "~/constant/menu.constant";
+import { STATUS } from "~/types";
 
 export function CardMenu({ menu, company }: { menu: MenuItem; company: string }) {
     return (
@@ -27,9 +28,9 @@ export function CardMenu({ menu, company }: { menu: MenuItem; company: string })
                 </div>
             )}
             <div className={twMerge("pb-2 px-3 flex flex-col justify-between gap-y-2 w-full", !menu.image && "pt-2")}>
-                <h3 className="text-sm flex items-center justify-start gap-1">
+                <h3 className="text-sm flex items-start justify-start gap-1 text-balance">
                     {menu.status === STATUS.favourite && (
-                        <div className="bg-red flex items-center justify-center w-9 h-4 pt-[1px] ps-[1px] rounded-xs text-gray-50">
+                        <div className="bg-red mt-0.5 flex items-center justify-center w-9 h-4 pt-[1px] ps-[1px] rounded-xs text-gray-50">
                             <span className="text-[10px] uppercase font-medium">best</span>
                         </div>
                     )}

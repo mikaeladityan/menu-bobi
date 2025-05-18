@@ -1,4 +1,4 @@
-import { categories, CategoryDTORes } from "~/constant/menu.constant";
+import { categories, CategoryDTORes } from "~/constant/categories.constant";
 
 export const categoryService = {
     async list(): Promise<CategoryDTORes[]> {

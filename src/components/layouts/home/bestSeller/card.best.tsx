@@ -1,14 +1,14 @@
 import { useAtom } from "jotai";
 import Image from "next/image";
-import { BestSellerMenuDTORes } from "~/constant/menu.constant";
+import { MenuItem } from "~/constant/menu.constant";
 import { companyAtom } from "~/store/company.atom";
 
-export function CardBestSeller({ menu }: { menu: BestSellerMenuDTORes }) {
+export function CardBestSeller({ menu }: { menu: MenuItem }) {
     const [{ data: company }] = useAtom(companyAtom);
     return (
         <button
             type="button"
-            className="relative rounded-lg overflow-hidden border border-gray-200 bg-gray-50 shadow cursor-pointer text-start flex flex-col justify-start min-w-[175px] min-h-48"
+            className="relative rounded-lg overflow-hidden border border-gray-200 bg-gray-50 shadow cursor-pointer text-start flex flex-col justify-start min-w-[200px] min-h-48"
         >
             <div className="relative min-h-20">
                 <Image
@@ -29,7 +29,7 @@ export function CardBestSeller({ menu }: { menu: BestSellerMenuDTORes }) {
                 <div className="absolute top-0 left-0 right-0 w-full h-full bg-gradient-to-b bg-gray-950/10 to-gray-950/50 z-[1]" />
             </div>
             <div className="p-3">
-                <h3 className="text-sm font-semibold">{menu.name}</h3>
+                <h3 className="text-sm font-semibold text-wrap">{menu.name}</h3>
                 <p className="text-[11px] text-gray-500 leading-3.5 text-wrap">{menu.description}</p>
             </div>
         </button>
