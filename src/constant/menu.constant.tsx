@@ -73,7 +73,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
                 slug: "satay-lilit",
                 price: 27,
                 description: "Minced chicken and coconut grated with Balinese sauce in a skewer.",
-                image: "",
+                image: "/menu/satay_lilit.JPG",
                 status: STATUS.active,
             },
             {
@@ -81,7 +81,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
                 slug: "dan-dan-dumpling",
                 price: 27,
                 description: "Stuffed dumplings with spicy Bobi Bowl Dan Dan peanut sauce.",
-                image: "",
+                image: "/menu/dan_dan_dumpling.JPG",
                 status: STATUS.active,
             },
             {
@@ -89,7 +89,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
                 slug: "okonomi-puffs",
                 price: 27,
                 description: "Crispy hash brown puffs with okonomiyaki sauce, mayo, bonito nori toppings.",
-                image: "",
+                image: "/menu/okonomi_puff.JPG",
                 status: STATUS.active,
             },
             {
@@ -97,7 +97,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
                 slug: "edamame-salt",
                 price: 15,
                 description: "Crispy, golden, savory shrimp and vegetable fritters.",
-                image: "",
+                image: "/menu/edamame_salt.JPG",
                 status: STATUS.active,
             },
             {
@@ -105,7 +105,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
                 slug: "edamame-spict",
                 price: 17,
                 description: "Crispy, golden, savory shrimp and vegetable fritters.",
-                image: "",
+                image: "/menu/edamame_spicy.JPG",
                 status: STATUS.active,
             },
         ],
@@ -228,7 +228,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
                 slug: "nasi-ayam-bali",
                 price: 40,
                 description: "State lilit, ayam betutu, urap, telur, kacang",
-                image: "",
+                image: "/menu/nasi_ayam_bali.JPG",
                 status: STATUS.active,
             },
             {
@@ -237,7 +237,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
                 price: 37,
                 description:
                     "Indonesian yellow chicken soup with tender chicken, beansprouts, tofu, egg and potato fritters.",
-                image: "",
+                image: "/menu/soto_ayam_bb.JPG",
                 status: STATUS.active,
             },
         ],
@@ -268,7 +268,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
                 slug: "mie-ayam-jamur",
                 price: 37,
                 description: "Ramen noodle with chicken mushroom, steamed chicken and wonton soup.",
-                image: "",
+                image: "/menu/mie_ayam_jamur.JPG",
                 status: STATUS.favourite,
             },
             {
@@ -277,7 +277,7 @@ export const menu: Array<CategoriesMenuDTORes> = [
                 price: 37,
                 description:
                     "A classic Indonesian favorite, stir-fried noodle dish topped with tender chicken, juicy shrimp, fresh vegetables, egg and crispy shallots.",
-                image: "",
+                image: "/menu/mie_goreng.JPG",
                 status: STATUS.active,
             },
         ],

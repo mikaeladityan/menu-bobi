@@ -21,7 +21,7 @@ export function CardMenu({ menu, company }: { menu: MenuItem; company: string })
                         alt={`${menu.name} | ${company}`}
                         width={2000}
                         height={2000}
-                        className="w-full h-full object-cover rounded"
+                        className="w-full h-40 object-center object-cover rounded"
                         priority
                         quality={100}
                     />
