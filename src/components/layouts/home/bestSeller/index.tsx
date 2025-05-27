@@ -20,9 +20,9 @@ export function BestSeller() {
                     <IconFlame size={18} />
                     <span>Best Seller!</span>
                 </h2>
-                <p className="text-xs text-gray-600 w-full">
+                {/* <p className="text-xs text-gray-600 w-full">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, cupiditate!
-                </p>
+                </p> */}
             </div>
 
             <div className="flex overflow-auto whitespace-nowrap thin-scroll gap-5 py-2 min-h-48 ps-3">
