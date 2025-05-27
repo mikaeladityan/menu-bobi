@@ -10,10 +10,10 @@ type propsInputSerach = {
 
 export function InputSearch({ handle, value, className }: propsInputSerach) {
     return (
-        <div className="overflow-hidden">
+        <div className="overflow-hidden w-full">
             <div
                 className={twMerge(
-                    "flex items-center justify-between border border-gray-300 rounded-full bg-white px-4 py-2 shadow-inner",
+                    "flex items-center justify-between border border-gray-300 rounded-full bg-white px-4 py-2 shadow-inner w-full",
                     className
                 )}
             >

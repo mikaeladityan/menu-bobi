@@ -4,8 +4,8 @@ import { Brand } from "~/components/ui/brand";
 
 export function MainNavbar() {
     return (
-        <nav className="sticky z-40 w-full top-0 left-0 right-0 max-w-md mx-auto bg-gray-50 text-gray-900 p-5 py-4 border-b border-gray-300">
-            <section className="flex items-center justify-between gap-5">
+        <nav className="sticky z-40 top-0 left-0 right-0 w-full mx-auto bg-gray-50 text-gray-900 border-b border-gray-300">
+            <section className="flex items-center justify-between gap-5 px-5 py-4 md:py-6 w-full md:w-10/12 mx-auto">
                 <Brand />
 
                 {/* side button navbar */}

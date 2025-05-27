@@ -7,7 +7,7 @@ export function CardPromotion() {
     return promotion?.map((p) => (
         <div
             key={p.code}
-            className="min-w-[300px] inline-block px-5 py-4 bg-gray-50 rounded-lg shadow border border-gray-300"
+            className="min-w-[300px] lg:max-w-[350px] inline-block px-5 py-4 bg-gray-50 rounded-lg shadow border border-gray-300"
         >
             <div className="flex flex-col gap-x-2 gap-y-4 h-full justify-between">
                 <div className="flex gap-3">

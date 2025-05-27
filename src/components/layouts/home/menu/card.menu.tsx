@@ -2,17 +2,21 @@ import { IconStarFilled } from "@tabler/icons-react";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { MenuItem } from "~/constant/menu.constant";
+import { COLUMN_TYPE } from "~/store/fillter.atom";
 import { STATUS } from "~/types";
 
-export function CardMenu({ menu, company }: { menu: MenuItem; company: string }) {
+export function CardMenu({ menu, company, column }: { menu: MenuItem; company: string; column: COLUMN_TYPE }) {
     return (
         <button
             key={menu.slug}
             type="button"
-            className="relative rounded-lg overflow-hidden border border-gray-200 bg-gray-50 w-full cursor-pointer text-start flex flex-col justify-start min-w-[175px]"
+            className={twMerge(
+                "relative rounded-lg overflow-hidden border border-gray-200 bg-gray-50 w-full cursor-pointer text-start flex flex-col justify-start min-w-[175px]",
+                column === "list" && "md:flex-row justify-between items-end"
+            )}
         >
             {menu.image && (
-                <div className="relative p-3">
+                <div className="relative p-2 lg:p-4">
                     <Image
                         src={
                             menu.image ||
@@ -21,13 +25,21 @@ export function CardMenu({ menu, company }: { menu: MenuItem; company: string })
                         alt={`${menu.name} | ${company}`}
                         width={2000}
                         height={2000}
-                        className="w-full h-40 object-center object-cover rounded"
+                        className={twMerge(
+                            "w-full h-40 md:h-60 object-center object-cover rounded",
+                            column === "list" && "h-full md:w-52 md:h-30 lg:h-30"
+                        )}
                         priority
                         quality={100}
                     />
                 </div>
             )}
-            <div className={twMerge("pb-2 px-3 flex flex-col justify-between gap-y-2 w-full", !menu.image && "pt-2")}>
+            <div
+                className={twMerge(
+                    "pb-2 px-3 flex flex-col justify-between gap-y-2 w-full md:px-3 md:py-5 lg:p-5",
+                    !menu.image && "pt-2"
+                )}
+            >
                 <h3 className="text-sm flex items-start justify-start gap-1 text-balance">
                     {menu.status === STATUS.favourite && (
                         <div className="bg-red mt-0.5 flex items-center justify-center w-9 h-4 pt-[1px] ps-[1px] rounded-xs text-gray-50">

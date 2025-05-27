@@ -42,7 +42,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${poppins.className} overflow-x-hidden scroll-smooth antialiased bg-gray-200 max-w-md mx-auto text-gray-950 font-normal tracking-wide`}
+                className={`${poppins.className} overflow-x-hidden scroll-smooth antialiased bg-gray-200 max-w-screen mx-auto text-gray-950 font-normal tracking-wide`}
             >
                 <RootProvider>
                     <Alert />
