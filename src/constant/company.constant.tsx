@@ -59,19 +59,19 @@ export const company: CompanyDTORes = {
         },
         {
             label: "email",
-            value: "info@bobibowl.com",
+            value: "mailto:info@bobibowl.com",
         },
         {
             label: "facebook",
-            value: "bobibowl.dxb",
+            value: "https://www.facebook.com/bobibowl.dxb",
         },
         {
             label: "instagram",
-            value: "bobibowl.dxb",
+            value: "https://www.instagram.com/bobibowl.dxb",
         },
         {
             label: "linkedin",
-            value: "company/bobi-bowl-restaurant",
+            value: "https://www.linkedin.com/company/bobi-bowl-restaurant/",
         },
     ],
 };
